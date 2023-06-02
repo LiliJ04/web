@@ -1,0 +1,12 @@
+{% extends 'display.html' %}
+{% block form %}
+    <h2 class="titre">Associate a short code to an URL</h2>
+    <div class="champs">
+        <form action="" method="post">
+            <label for="target_url">Target URL</label>
+            <input type="text" name="target_url" id="target_url" placeholder="Enter the URL">
+
+            <input class="valider" type="submit" value="Add">
+        </form>
+    </div>
+{% endblock %}

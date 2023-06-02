@@ -1,0 +1,3 @@
+CREATE TABLE url (id INT PRIMARY KEY NOT NULL, url VARCHAR(100), name VARCHAR(50), visits int);
+INSERT INTO url VALUES (1, 'https://telecomnancy.univ-lorraine.fr/', 'tn', 42);
+INSERT INTO url VALUES (2, 'https://gitlab.telecomnancy.univ-lorraine.fr/', 'gitlab', 666);

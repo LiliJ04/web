@@ -1,0 +1,15 @@
+1) app.py (jusqu'à route add)
+2) add_form.html
+3) display.html
+
+conseils :
+- pour le html faire attention
+	à l'héritage de template avec les block / endblock
+ 	aux noms des variables issues du python
+	quand on utilise des variables issues du python bien mettre les {{ }} sinon pas reconnues
+
+- pour le python faire attention
+	aux routes et leur nom, la gestion des paramètres
+	à quand afficher quels templates (gestion des erreurs suivant les données retournées après requêtes sur la bd)
+	aux méthodes post et get
+	aux appels à la bd

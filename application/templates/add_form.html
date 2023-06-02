@@ -1,0 +1,30 @@
+<!-- le extends permet de factoriser du code -->
+<!-- en plus d'afficher le contenu de ce fichier html, on l'affiche à l'intérieur du contenu de display.html -->
+<!-- lire d'abord le contenu de add_form.html puis aller dans display.html -->
+{% extends 'display.html' %}
+{% block form %}
+    <h2 class="titre">Associate a short code to an URL</h2>
+    <div class="champs">
+        <!-- on a un formlaire qui est en méthode post -->
+        <!-- le formulaire est renvoyé à la fonction qui l'affiche (ici la fonction add dans le python) -->
+        <!-- pour que la donnée soit envoyée, il vaut un bouton de type submit -->
+        <form action="" method="post">
+            <label for="target_url">Target URL</label>
+            <br>
+            <!-- chaque input est lié à un label (for, name) -->
+            <!-- placeholder = txt en fond de l'input à l'affichage -->
+            <!-- le name est important car c'est grâce à lui que l'on peut récupérer la valeur du champ dans le python -->
+            <input type="text" name="target_url" id="target_url" placeholder="Enter the URL">
+            <br>
+            <label for="short_code">Short code</label>
+            <br>
+            <input type="text" name="short_code" id="short_code" placeholder="Enter the short code"><br>
+            <!-- les {{ }} peremttent d'afficher une variable issue du python, ici la variable message -->
+            <!-- suivant la valeur de messsage dans la fonction add python, on aura un affichage différent -->
+            <span style="color: red">{{ message }}</span>
+
+            <!-- bonton de validation -->
+            <input class="valider" type="submit" value="Add">
+        </form>
+    </div>
+{% endblock %}

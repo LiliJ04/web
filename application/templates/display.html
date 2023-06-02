@@ -1,0 +1,45 @@
+<!-- là encore on procède à un extends, contenu à voir plus tard -->
+<!-- ne pas oublier les blocks qui entourent le contenu html -->
+<!-- (block content et endblock -->
+<!-- à noter que content est un nom perso, mais on peut mettre n'imp -->
+{% extends 'template.html' %}
+{% block content %}
+    <div class="header">
+        <!-- les href permet les liens entre les pages -->
+        <!-- le fait d'utiliser url_for permet d'appeler une autre route -->
+        <!-- ici on appele la route display (tu peux aller voir le contenu de la route dans le fichier python -->
+        <i class="fa-solid fa-scissors" style="color: white"></i><a href="{{ url_for('display') }}">URL ShorTNener</a>
+    </div>
+    <div class="tab table table-bordered">
+        <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Short code</th>
+                <th>Visits</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in range(data | length) %}
+            <tr>
+                <!-- même principe (lien entre les routes via le nom des fonctions python, mais on pass un paramètre -->
+                <!-- voir comment est définie la route dans le python pour voir comment récupérer ces param -->
+                <!-- + on voit bien que l'on utlise la variable data qui contient les données récupérées de la bd -->
+                <td><a href="{{ url_for('raccourci', short_code=data[i][2]) }}">{{ data[i][1] }}</a></td>
+                <td><a href="{{ url_for('raccourci', short_code=data[i][2]) }}">{{ data[i][2] }}</a></td>
+                <td><span class="number">{{ data[i][3] }}</span><sup>visits</sup></td>
+                <td><a href="{{ url_for('delete', short_code=data[i][2]) }}">delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+    <div class="block_form">
+        <div>
+            {% block form %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
